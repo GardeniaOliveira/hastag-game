@@ -8,7 +8,7 @@ body{
     text-align: center;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #B08815;
+    color: #f59e0b;
 }
 .container{
          display: flex;
@@ -27,6 +27,10 @@ body{
     height: 150px;
     background-color:#164e63;
     border: transparent;
+    cursor: pointer;
+}
+.box:hover{
+    background-color:#7D8DC9;
 }
 .n1, .n4,.n7{
     border-right: 3px solid #7D8DC9;
