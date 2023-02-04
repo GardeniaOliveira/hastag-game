@@ -1,4 +1,4 @@
-const box = document.querySelector(".box")
+const box = document.querySelectorAll(".box")
 const n1 = document.querySelector(".n1");
 const n2 = document.querySelector(".n2");
 const n3 = document.querySelector(".n3");
@@ -11,108 +11,79 @@ const n9 = document.querySelector(".n9");
 const letter = [
     "x", "0"
 ]
-
-n1.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n1.innerHTML = sortLetter;
-    console.log(n1.innerText); 
-    checkWinner()
+const winningCombos = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+]
+box.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        const sortLetter = letter[Math.floor(Math.random() * 2)]
+    button.innerText = sortLetter;
+    })
 })
-
-n2.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n2.innerHTML = sortLetter;
-    console.log(n2.innerText);
-    checkWinner()
-})
-
-n3.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n3.innerHTML = sortLetter;
-    console.log(n3.innerText);
-    checkWinner()
-})
-
-n4.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n4.innerHTML = sortLetter;
-    checkWinner()
-})
-
-n5.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n5.innerHTML = sortLetter;
-    checkWinner()
-})
-
-n6.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n6.innerHTML = sortLetter;
-    checkWinner()
-})
-n7.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n7.innerHTML = sortLetter;
-    checkWinner()
-})
-
-n8.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n8.innerHTML = sortLetter;
-    checkWinner()
-})
-
-n9.addEventListener('click', () => {
-    const sortLetter = letter[Math.floor(Math.random() * 2)]
-    n9.innerHTML = sortLetter;
-    checkWinner()
-})
-
+checkWinner()
+/*checkWinner()
 function checkWinner(){
-    debugger;
-    if(n1.innerText === n2.innerText === n3.innerText){
-        n1.style.backgroundColor = '#7D8DC9';
-        n2.style.backgroundColor = '#7D8DC9';
-        n3.style.backgroundColor = '#7D8DC9';
-        console.log(n1)
-        console.log(n2)
-        console.log(n3)
+    for (const condition of winningCombos) {
+        let[a,b,c] = condition
+        if(box[a] && (box[a]==box[b] && box[a]==box[c])){
+            console.log('you win')
+            return(a,b,c)
+        }
     }
-    else if(n4.innerText === n5.innerText === n6.innerText ){
-        n4.style.backgroundColor = '#7D8DC9';
-        n5.style.backgroundColor = '#7D8DC9';
-        n6.style.backgroundColor = '#7D8DC9';
-        console.log('passou aqui')
+
+}*/
+function checkWinner(){
+    if(box[0].value == box[1].value && box[0]== box[2].value){
+        box[0].style.backgroundColor = '#7D8DC9';
+        box[1].style.backgroundColor = '#7D8DC9';
+        box[2].style.backgroundColor = '#7D8DC9';
+     
     }
-    else if(n7.innerText === n8.innerText === n9.innerText ){
-        n7.style.backgroundColor = '#7D8DC9';
-        n8.style.backgroundColor = '#7D8DC9';
-        n9.style.backgroundColor = '#7D8DC9';
-        console.log('passou aqui')
+    else if(box[3].value == box[4].value  && box[3]== box[5].value){
+        box[3].style.backgroundColor = '#7D8DC9';
+        box[4].style.backgroundColor = '#7D8DC9';
+        box[5].style.backgroundColor = '#7D8DC9';
+      console.log("passou aqui")
     }
-    else if(n1.innerText === n4.innerText === n7.innerText ){
-        n1.style.backgroundColor = '#7D8DC9';
-        n4.style.backgroundColor = '#7D8DC9';
-        n7.style.backgroundColor = '#7D8DC9';
-        console.log('passou aqui')
+    else if(box[6].value == box[7].value  && box[6]== box[8].value){
+        box[6].style.backgroundColor = '#7D8DC9';
+        box[7].style.backgroundColor = '#7D8DC9';
+        box[8].style.backgroundColor = '#7D8DC9';
+      console.log("passou aqui")
     }
-    else if(n2.innerText === n5.innerText === n8.innerText ){
-        n2.style.backgroundColor = '#7D8DC9';
-        n5.style.backgroundColor = '#7D8DC9';
-        n8.style.backgroundColor = '#7D8DC9';
-        console.log('passou aqui')
+    else if(box[0].value == box[4].value  && box[0]== box[7].value){
+        box[0].style.backgroundColor = '#7D8DC9';
+        box[4].style.backgroundColor = '#7D8DC9';
+        box[7].style.backgroundColor = '#7D8DC9';
+      console.log("passou aqui")
     }
-    else if(n3.innerText === n6.innerText === n9.innerText ){
-        n3.style.backgroundColor = '#7D8DC9';
-        n6.style.backgroundColor = '#7D8DC9';
-        n9.style.backgroundColor = '#7D8DC9';
-        console.log('passou aqui')
+    else if(box[2].value == box[5].value  && box[2]== box[7].value){
+        box[2].style.backgroundColor = '#7D8DC9';
+        box[5].style.backgroundColor = '#7D8DC9';
+        box[7].style.backgroundColor = '#7D8DC9';
+      console.log("passou aqui")
     }
-    else if(n1.innerText === n6.innerText === n9.innerText ){
-        n1.style.backgroundColor = '#7D8DC9';
-        n6.style.backgroundColor = '#7D8DC9';
-        n9.style.backgroundColor = '#7D8DC9';
-        console.log('passou aqui')
+    else if(box[3].value == box[6].value  && box[3]== box[8].value){
+        box[3].style.backgroundColor = '#7D8DC9';
+        box[6].style.backgroundColor = '#7D8DC9';
+        box[9].style.backgroundColor = '#7D8DC9';
+      console.log("passou aqui")
     }
-    
+    else if(box[0].value == box[5].value  && box[0]== box[8].value){
+        box[0].style.backgroundColor = '#7D8DC9';
+        box[5].style.backgroundColor = '#7D8DC9';
+        box[8].style.backgroundColor = '#7D8DC9';
+      console.log("passou aqui")
+    }
+    console.log(box[0].value)
+    console.log(box[1].value)
+    console.log(box[2].value)
 }
+

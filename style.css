@@ -1,49 +1,107 @@
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-size: 130px;
-    text-align: center;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #f59e0b;
-}
-.container{
-         display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    width: 450px;
-    height: 450px;
-    margin: 100px 30% ;
+
+:root {
+    --bg-color: #164e63;
+    --hover-color: #7D8DC9;
+    --text-color: #f59e0b;
 }
 
-.box{
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 110px;
+    text-align: center;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+h1 {
+    font-size: 60px;
+    margin: 40px 0 30px 0;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 450px;
+    height: 450px;
+    margin: 30px;
+}
+
+.box {
     width: 150px;
     height: 150px;
-    background-color:#164e63;
+    background-color: var(--bg-color);
     border: transparent;
     cursor: pointer;
+    border-right: 3px solid var(--hover-color);
+    border-bottom: 3px solid var(--hover-color);
+    font-size: 100px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
 }
-.box:hover{
-    background-color:#7D8DC9;
+
+.box:hover {
+    background-color: var(--hover-color);
 }
-.n1, .n4,.n7{
-    border-right: 3px solid #7D8DC9;
-} 
-.n1, .n4{
-    border-bottom: 3px solid #7D8DC9;
-} 
-.n3, .n6,.n9{
-    border-left:3px solid #7D8DC9;
-} 
-.n3, .n6{
-    border-bottom: 3px solid #7D8DC9;
+
+.n3,
+.n6,
+.n9 {
+    border-right: none;
 }
-.n2, .n5{
-    border-bottom: 3px solid #7D8DC9;
+
+.n7,
+.n8,
+.n9 {
+    border-bottom: none;
+}
+
+.modal {
+    width: 500px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background-color: var(--hover-color);
+    color: var(--text-color);
+    font-size: 20px;
+    position: absolute;
+    border-radius: 5px;
+}
+
+.modal button {
+    width: 50%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+
+}
+
+.modal button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    cursor: pointer;
+}
+
+.hidden-modal {
+    visibility: hidden;
 }
