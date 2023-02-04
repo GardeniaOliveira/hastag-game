@@ -1,4 +1,6 @@
-const box = document.querySelectorAll(".box")
+const box = document.querySelectorAll(".box");
+const resetBtn = document.querySelector(".start-game");
+const msg = document.querySelector(".msg");
 const letter = [
     "x", "0"
 ]
@@ -82,4 +84,7 @@ function checkWinner(){
       console.log("passou aqui")
     }
 }
+resetBtnaddEventListener('click', (e) => {
+    window.location.reload();
+})
 

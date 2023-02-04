@@ -69,10 +69,13 @@ h1 {
 .n9 {
     border-bottom: none;
 }
-
+.msg{
+    font-size: 75px;
+    margin-bottom: 20px;
+}
 .modal {
     width: 500px;
-    height: 250px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
