@@ -6,7 +6,7 @@ let currentPlayer = document.querySelector(".current-player");
 let checkTurn = true; 
 const x = "x";
 const o = "o";
-let storePlayer;
+let storePlayer = [];
 
 const winningCombos = [
     [0, 1, 2],
@@ -21,18 +21,19 @@ const winningCombos = [
 
 box.forEach((button) => {
    
+    //button.addEventListener("click", { once: true })
     button.addEventListener('click', (e) => {
         debugger;
-        storePlayer = [];
+        
        turn = checkTurn? x:o;
         button.innerText = turn;
-        
+
         let lastPlayer = turn;
         currentPlayer.innerText = turn;
         checkTurn = !checkTurn;
 
-      lastPlayer= lastPlayer + turn
-        storePlayer.push(lastPlayer);
+      
+        storePlayer.push(turn);
         console.log(storePlayer)
 
         checkWinner();
@@ -63,7 +64,7 @@ function checkWinner() {
             //+ boxes.innerText === o  === 9);        
         //console.log(result)
     }
-    //gameOver()
+    gameOver()
 
 }
 
@@ -75,7 +76,7 @@ function showModal(){
 }
 
 function gameOver(){
-    if(storePlayer.filter((item) => item).length === 9){
+    if(storePlayer.length === 9){
         msg.innerText = "Game over!!";
         showModal()
     }
