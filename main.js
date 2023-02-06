@@ -6,6 +6,7 @@ let currentPlayer = document.querySelector(".current-player");
 let checkTurn = true; 
 const x = "x";
 const o = "o";
+let storePlayer;
 
 const winningCombos = [
     [0, 1, 2],
@@ -19,18 +20,32 @@ const winningCombos = [
 ]
 
 box.forEach((button) => {
+   
     button.addEventListener('click', (e) => {
-       turn = checkTurn? x:o
+        debugger;
+        storePlayer = [];
+       turn = checkTurn? x:o;
         button.innerText = turn;
+        
+        let lastPlayer = turn;
         currentPlayer.innerText = turn;
         checkTurn = !checkTurn;
-        checkWinner()
+
+      lastPlayer= lastPlayer + turn
+        storePlayer.push(lastPlayer);
+        console.log(storePlayer)
+
+        checkWinner();
+      
     })
+   
 })
+
 checkWinner()
 function checkWinner() {
     for (const condition of winningCombos) {
         let [a, b, c] = condition
+        
         if (box[a].innerText !== "" && box[b].innerText !== "" && box[c].innerText !== "") {
             if (box[a].innerText == box[b].innerText && box[a].innerText == box[c].innerText) {
                 box[a].style.backgroundColor = '#7D8DC9';
@@ -40,17 +55,15 @@ function checkWinner() {
                 msg.innerText = "You win!"
                 setTimeout(() => {
                     showModal()
-                  }, 1000)
-                  
-                
-            }else if(box[a].innerText !== "" && box[b].innerText !== "" && box[c].innerText !== ""){
-                msg.innerText = "Game over!!";
-                    showModal()
-               
+                  }, 800)
+                    
             }
         }
-
+        //const result = box.filter(boxes => boxes.innerText === x 
+            //+ boxes.innerText === o  === 9);        
+        //console.log(result)
     }
+    //gameOver()
 
 }
 
@@ -59,4 +72,11 @@ function showModal(){
     resetBtn.addEventListener('click', (e) => {
         window.location.reload();
     })
+}
+
+function gameOver(){
+    if(storePlayer.filter((item) => item).length === 9){
+        msg.innerText = "Game over!!";
+        showModal()
+    }
 }
