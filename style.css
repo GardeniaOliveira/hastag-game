@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 50px;
     margin: 40px 0 30px 0;
     color: white;
 }
@@ -38,20 +38,20 @@ h4{
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 450px;
-    height: 450px;
+    width: 330px;
+    height: 330px;
     margin: 30px;
 }
 
 .box {
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
     background-color: var(--bg-color);
     border: transparent;
     cursor: pointer;
     border-right: 3px solid var(--hover-color);
     border-bottom: 3px solid var(--hover-color);
-    font-size: 100px;
+    font-size: 80px;
     font-weight: bold;
     font-family: 'Finger Paint', cursive;
     color: var(--text-color);
@@ -73,12 +73,12 @@ h4{
     border-bottom: none;
 }
 .msg{
-    font-size: 70px;
+    font-size: 50px;
     margin-bottom: 20px;
 }
 .modal {
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,9 +86,9 @@ h4{
     z-index: 1;
     background-color: var(--hover-color);
     color: var(--text-color);
-    font-size: 20px;
     position: absolute;
     border-radius: 5px;
+    margin-top: 50px;
 }
 
 .modal button {

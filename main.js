@@ -18,7 +18,6 @@ const winningCombos = [
     [2, 4, 6]
 ]
 
-index = x;
 box.forEach((button) => {
     button.addEventListener('click', (e) => {
        turn = checkTurn? x:o
@@ -39,10 +38,14 @@ function checkWinner() {
                 box[c].style.backgroundColor = '#7D8DC9';
 
                 msg.innerText = "You win!"
-                showModal()
-            }else{
+                setTimeout(() => {
+                    showModal()
+                  }, 1000)
+                  
+                
+            }else if(box[a].innerText !== "" && box[b].innerText !== "" && box[c].innerText !== ""){
                 msg.innerText = "Game over!!";
-                showModal()
+                    showModal()
                
             }
         }
