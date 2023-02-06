@@ -2,9 +2,11 @@ const box = document.querySelectorAll(".box");
 const modal = document.querySelector(".modal");
 const resetBtn = document.querySelector(".start-game");
 const msg = document.querySelector(".msg");
-const letter = [
-    "x", "0"
-]
+let currentPlayer = document.querySelector(".current-player");
+let checkTurn = true; 
+const x = "x";
+const o = "o";
+
 const winningCombos = [
     [0, 1, 2],
     [3, 4, 5],
@@ -15,10 +17,14 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
 ]
+
+index = x;
 box.forEach((button) => {
     button.addEventListener('click', (e) => {
-        const sortLetter = letter[Math.floor(Math.random() * 2)]
-        button.innerText = sortLetter;
+       turn = checkTurn? x:o
+        button.innerText = turn;
+        currentPlayer.innerText = turn;
+        checkTurn = !checkTurn;
         checkWinner()
     })
 })
