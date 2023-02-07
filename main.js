@@ -20,29 +20,22 @@ const winningCombos = [
 ]
 
 box.forEach((button) => {
-   
-    //button.addEventListener("click", { once: true })
     button.addEventListener('click', (e) => {
-        debugger;
-        
+        if(button.innerText.trim() != "") return
        turn = checkTurn? x:o;
         button.innerText = turn;
-
-        let lastPlayer = turn;
         currentPlayer.innerText = turn;
         checkTurn = !checkTurn;
 
-      
         storePlayer.push(turn);
         console.log(storePlayer)
 
         checkWinner();
-      
-    })
+    }) 
+   
    
 })
 
-checkWinner()
 function checkWinner() {
     for (const condition of winningCombos) {
         let [a, b, c] = condition
@@ -60,9 +53,6 @@ function checkWinner() {
                     
             }
         }
-        //const result = box.filter(boxes => boxes.innerText === x 
-            //+ boxes.innerText === o  === 9);        
-        //console.log(result)
     }
     gameOver()
 
